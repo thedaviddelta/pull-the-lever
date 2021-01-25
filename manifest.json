@@ -12,7 +12,9 @@
     "browser_action": {
         "default_title": "__MSG_title__",
         "default_icon": {
-            "128": "img/button_save.png"
+            "48": "img/button_save_48.png",
+            "96": "img/button_save_96.png",
+            "128": "img/button_save_128.png"
         }
     },
     "permissions": [
@@ -23,6 +25,11 @@
         "gecko": {
             "id": "pull-the-lever@thedaviddelta.com"
         }
+    },
+    "icons": {
+        "48": "img/button_save_48.png",
+        "96": "img/button_save_96.png",
+        "128": "img/button_save_128.png"
     },
     "default_locale": "en"
 }

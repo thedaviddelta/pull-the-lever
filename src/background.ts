@@ -2,9 +2,11 @@ const { browserAction, tabs, storage } = browser;
 
 const storageKey = "saved-tabs";
 
+const imgSizes = [48, 96, 128];
+
 enum Images {
-    Save = "img/button_save.png",
-    Restore = "img/button_restore.png"
+    Save = "img/button_save",
+    Restore = "img/button_restore"
 }
 
 const save = async (): Promise<void> => {
@@ -32,11 +34,16 @@ const restore = (urls: string[], currentTab: number): void => {
 }
 
 const updateIcon = (urls: string[] | undefined): void => {
-    const path = urls
-        ? Images.Restore
+    const img = urls 
+        ? Images.Restore 
         : Images.Save;
+
+    const path = imgSizes.reduce((acc, size) => ({
+        ...acc,
+        [size]: `${img}_${size}.png`
+    }), {});
+
     browserAction.setIcon({ path });
-    
     browserAction.setBadgeText({ text: urls ? `${urls.length}` : null });
 }
 
