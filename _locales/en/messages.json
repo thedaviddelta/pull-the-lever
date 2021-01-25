@@ -1,0 +1,11 @@
+{
+    "title": {
+        "message": "Pull The Lever!"
+    },
+    "subtitle": {
+        "message": "Tab Saver"
+    },
+    "desc": {
+        "message": "Extension for saving all your currently open tabs"
+    }
+}
