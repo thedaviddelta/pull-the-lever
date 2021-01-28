@@ -7,6 +7,16 @@
 Extension for saving all your currently open tabs
 
 🦊 [Firefox](https://addons.mozilla.org/firefox/addon/pull-the-lever/)  
+🦁 [Chrome / Brave](https://chrome.google.com/webstore/detail/pull-the-lever/iiloaibmoaboglhleplfgjdnmlglhgeg)  
+⭕ [Opera](https://addons.opera.com/extensions/details/pull-the-lever/)  
+🌊 [Edge](https://microsoftedge.microsoft.com/addons/detail/mdgpnkggehcfobgefmgndeamagbhlpfn)  
+
+
+## Screenshots
+
+![Firefox](img/screenshot_firefox.png)
+![Brave](img/screenshot_brave.png)
+![Chrome](img/screenshot_chrome.png)
 
 
 ## How does it work?
