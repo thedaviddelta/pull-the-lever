@@ -1,4 +1,4 @@
-const { browserAction, tabs, storage } = browser;
+const { browserAction, tabs, storage, runtime } = browser;
 
 const storageKey = "saved-tabs";
 
@@ -47,11 +47,19 @@ const updateIcon = (urls: string[] | undefined): void => {
     browserAction.setBadgeText({ text: urls ? `${urls.length}` : null });
 }
 
-browserAction.onClicked.addListener(async ({ index }) => {
+const getUrls = async (): Promise<string[] | undefined> => {
     const { [storageKey]: urls } = await storage.sync.get(storageKey);
+    return urls;
+}
+
+browserAction.onClicked.addListener(async ({ index }) => {
+    const urls = await getUrls();
     urls ? restore(urls, index) : save();
 });
 
 storage.onChanged.addListener(({ [storageKey]: urls }) => (
     urls.oldValue === urls.newValue || updateIcon(urls.newValue)
 ));
+
+runtime.onStartup.addListener(async () => updateIcon(await getUrls()));
+runtime.onInstalled.addListener(async () => updateIcon(await getUrls()));
